@@ -1,7 +1,7 @@
 import PlacesList from '../components/places/PlacesList';
 
 const AllPlaces = () => {
-	<PlacesList />;
+	return <PlacesList />;
 };
 
 export default AllPlaces;
