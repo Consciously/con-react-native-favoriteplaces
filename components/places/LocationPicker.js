@@ -14,7 +14,7 @@ import { Colors } from '../../constants/colors';
 import { useEffect, useState } from 'react';
 import { getMapPreview } from '../../util/location';
 
-const LocationPicker = () => {
+const LocationPicker = ({ onPickLocation }) => {
 	const navigation = useNavigation();
 	const route = useRoute();
 	const isFocused = useIsFocused();
@@ -33,6 +33,10 @@ const LocationPicker = () => {
 			setPickedLocation(mapPickedLocation);
 		}
 	}, [route, isFocused]);
+
+	useEffect(() => {
+		onPickLocation(pickedLocation);
+	}, [pickedLocation, onPickLocation]);
 
 	const verifyPermissions = async () => {
 		if (
